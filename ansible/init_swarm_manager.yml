@@ -1,0 +1,11 @@
+# Author: NSSA 320 Group 6
+# Purpose: Set up Docker Swarm manager
+# Date: 10/24/23
+# Version: 1.0
+
+- name: Enable Docker Manager
+  hosts: docker_manager
+  become: true
+  tasks:
+    - name: Enable Docker manager
+      ansible.builtin.command: docker swarm init

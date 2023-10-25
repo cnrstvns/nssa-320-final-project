@@ -1,0 +1,15 @@
+# Author: NSSA 320 Group 6
+# Purpose: Join Docker server to swarm
+# Date: 10/24/23
+# Version: 1.0
+
+- name: Join Docker Server to Swarm
+  hosts: docker_servers
+  become: true
+  vars_prompt:
+    - name: manager_ip
+      prompt: "Please enter a value for the manager IP"
+      private: false
+  tasks:
+    - name: Join Docker Swarm
+      ansible.builtin.command: docker swarm join {{ manager_ip }}:2377
