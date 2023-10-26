@@ -1,0 +1,1 @@
+docker stack deploy web-app-stack -c docker-compose.yml
