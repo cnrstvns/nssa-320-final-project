@@ -7,6 +7,18 @@
   hosts: docker_manager_a
   become: true
   tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.yum:
+        name: git
+        state: present
+
+    - name: Download website
+      ansible.builtin.git:
+        repo: https://github.com/cnrstvns/nssa-320-final-project
+        clone: true
+        update: true
+        force: true
+
     - name: Download pip
       ansible.builtin.command: curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
 
@@ -20,4 +32,4 @@
       docker_stack:
         state: present
         name: web-app
-        compose: ../app/docker-compose.yml
+        compose: nssa-320-labs/app/docker-compose.yml
