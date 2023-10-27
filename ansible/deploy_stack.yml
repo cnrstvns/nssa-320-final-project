@@ -33,4 +33,4 @@
       docker_stack:
         state: present
         name: web-app
-        compose: ~/nssa-320-final-project/app/docker-compose.yml
+        compose: nssa-320-final-project/app/docker-compose.yml
