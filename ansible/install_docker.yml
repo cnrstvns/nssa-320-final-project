@@ -3,34 +3,30 @@
 # Date: 10/24/23
 # Version: 1.0
 
-- name: Install Docker
-  hosts: docker_hosts
-  become: true
-  tasks:
-    - name: Install yum utils
-      yum:
-        name: yum-utils
-        state: present
+- name: Install yum utils
+  yum:
+    name: yum-utils
+    state: present
 
-    - name: Add Docker yum repo
-      ansible.builtin.command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+- name: Add Docker yum repo
+  ansible.builtin.command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-    - name: Install Docker and utils
-      ansible.builtin.yum:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-buildx-plugin
-          - docker-compose-plugin
-        state: present
+- name: Install Docker and utils
+  ansible.builtin.yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
 
-    - name: Enable docker
-      ansible.builtin.service:
-        name: docker
-        enabled: true
+- name: Enable docker
+  ansible.builtin.service:
+    name: docker
+    enabled: true
 
-    - name: Start docker
-      ansible.builtin.service:
-        name: docker
-        state: started
+- name: Start docker
+  ansible.builtin.service:
+    name: docker
+    state: started
