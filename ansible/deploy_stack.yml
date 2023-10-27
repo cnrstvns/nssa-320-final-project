@@ -1,0 +1,14 @@
+# Author: NSSA 320 Group 6
+# Purpose: Deploy docker stack to main docker server
+# Date: 10/24/23
+# Version: 1.0
+
+- name: Deploy stack to Docker worker
+  hosts: docker_manager_a
+  become: true
+  tasks:
+    - name: Deploy stack
+      docker_stack:
+        state: present
+        name: web-app
+        compose: ../app/docker-compose.yml

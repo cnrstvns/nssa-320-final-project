@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   web:
-    image: 'web-app'
+    image: 'connorstevens/nssa-320-final-project'
     ports:
       - '3000:3000'
     deploy:

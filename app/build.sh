@@ -2,4 +2,4 @@
 yarn run build
 
 # build docker image
-docker buildx build . -t web-app
+docker buildx build . -t nssa-320-final-project
