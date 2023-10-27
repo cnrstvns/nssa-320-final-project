@@ -8,7 +8,9 @@
   become: true
   tasks:
     - name: Install pip
-      ansible.builtin.command: yum install python2-pip
+      ansible.builtin.command: |
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        python2 get-pip.py
 
     - name: Install packages
       ansible.builtin.command: pip install jsondiff
