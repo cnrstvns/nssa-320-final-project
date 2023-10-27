@@ -12,7 +12,7 @@
         name: git
         state: present
 
-    - name: Download website
+    - name: Download repo
       ansible.builtin.git:
         repo: https://github.com/cnrstvns/nssa-320-final-project
         dest: ~/nssa-320-final-project
@@ -33,4 +33,4 @@
       docker_stack:
         state: present
         name: web-app
-        compose: ~/nssa-320-labs/app/docker-compose.yml
+        compose: ~/nssa-320-final-project/app/docker-compose.yml
