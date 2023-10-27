@@ -7,13 +7,8 @@
   hosts: docker_manager_a
   become: true
   tasks:
-    - name: Install python
-      ansible.builtin.yum:
-        name: python3
-        state: present
-
     - name: Install packages
-      ansible.builtin.command: pip3 install jsondiff
+      ansible.builtin.command: pip install jsondiff
 
     - name: Deploy stack
       docker_stack:
