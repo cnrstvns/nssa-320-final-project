@@ -1,0 +1,11 @@
+# Author: NSSA 320 Group 6
+# Purpose: Join Docker worker server to swarm
+# Date: 10/24/23
+# Version: 1.0
+
+- name: Join Docker Server to Swarm
+  hosts: docker_workers
+  become: true
+  tasks:
+    - name: Join Docker Swarm
+      ansible.builtin.command: docker swarm join --token SWMTKN-1-279low18zjqckr4mw2mnuhc7g5r8w2vdzmbr4dfkhnoawoto8z-0qbpkr7kvy8av4b7unj19elhb 10.116.0.2:2377
