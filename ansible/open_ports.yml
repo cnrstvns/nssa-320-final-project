@@ -1,0 +1,30 @@
+# Author: NSSA 320 Group 6
+# Purpose: Open ports for Docker communication
+# Date: 10/25/23
+# Version: 1.0
+
+- name: Open ports for Docker communication
+  hosts: docker_hosts
+  become: true
+  tasks:
+    - name: Install firewalld
+      ansible.builtin.yum:
+        name: firewalld
+        state: present
+
+    - name: Enable firewalld
+      ansible.builtin.service:
+        name: firewalld
+        enabled: true
+
+    - name: Open ports for Docker
+      ansible.builtin.command: |
+        firewall-cmd --add-port=22/tcp --permanent
+        firewall-cmd --add-port=2376/tcp --permanent
+        firewall-cmd --add-port=2377/tcp --permanent
+        firewall-cmd --add-port=4789/udp --permanent
+        firewall-cmd --add-port=7946/tcp --permanent
+        firewall-cmd --add-port=7946/udp --permanent
+
+    - name: Restart firewalld
+      ansible.builtin.command: firewall-cmd --reload
