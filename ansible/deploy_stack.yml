@@ -4,7 +4,7 @@
 # Version: 1.0
 
 - name: Deploy stack to Docker worker
-  hosts: docker_managers
+  hosts: docker_manager_a
   become: true
   tasks:
     - name: Ensure Git is installed
