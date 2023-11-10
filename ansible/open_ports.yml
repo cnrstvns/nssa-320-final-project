@@ -18,13 +18,14 @@
         enabled: true
 
     - name: Open ports for Docker
-      ansible.builtin.command: |
-        firewall-cmd --add-port=22/tcp --permanent
-        firewall-cmd --add-port=2376/tcp --permanent
-        firewall-cmd --add-port=2377/tcp --permanent
-        firewall-cmd --add-port=4789/udp --permanent
-        firewall-cmd --add-port=7946/tcp --permanent
-        firewall-cmd --add-port=7946/udp --permanent
+      ansible.builtin.command: "{{ item }}"
+      with_items:
+        - firewall-cmd --add-port=22/tcp --permanent
+        - firewall-cmd --add-port=2376/tcp --permanent
+        - firewall-cmd --add-port=2377/tcp --permanent
+        - firewall-cmd --add-port=4789/udp --permanent
+        - firewall-cmd --add-port=7946/tcp --permanent
+        - firewall-cmd --add-port=7946/udp --permanent
 
     - name: Restart firewalld
       ansible.builtin.command: firewall-cmd --reload
