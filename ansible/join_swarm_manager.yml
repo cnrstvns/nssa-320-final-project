@@ -4,7 +4,7 @@
 # Version: 1.0
 
 - name: Join Docker Server to Swarm
-  hosts: docker_workers
+  hosts: docker_managers
   become: true
   tasks:
     - name: Install Docker
@@ -12,4 +12,4 @@
         file: "install_docker.yml"
 
     - name: Join Docker Swarm
-      ansible.builtin.command: docker swarm join --token SWMTKN-1-3yz3vdxzn5eoxi9fcqxkzxut4hcjtosf0q8moccr8ap8c4gcai-6cdxcwq9mio40mf6p2ux5c5ro 192.168.206.168:3277
+      ansible.builtin.command: docker swarm join --token SWMTKN-1-3yz3vdxzn5eoxi9fcqxkzxut4hcjtosf0q8moccr8ap8c4gcai-48cpnf97mt7jou78v1oi95g2m 192.168.206.168:3277
