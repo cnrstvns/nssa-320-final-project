@@ -12,4 +12,4 @@
         file: "install_docker.yml"
 
     - name: Join Docker Swarm
-      ansible.builtin.command: docker swarm join --token SWMTKN-1-5zlfzdqx7g1axjraozzg3p70vznlj7oedgkexmnhj7z11kmiap-dbwfpob69silktbgmz3pz4n9j 10.116.0.6:2377
+      ansible.builtin.command: docker swarm join --token SWMTKN-1-5zlfzdqx7g1axjraozzg3p70vznlj7oedgkexmnhj7z11kmiap-dbwfpob69silktbgmz3pz4n9j 10.116.0.3:2377
