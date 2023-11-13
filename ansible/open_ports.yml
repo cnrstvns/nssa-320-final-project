@@ -17,6 +17,11 @@
         name: firewalld
         enabled: true
 
+    - name: Start firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: started
+
     - name: Open ports for Docker
       ansible.builtin.command: "{{ item }}"
       with_items:
