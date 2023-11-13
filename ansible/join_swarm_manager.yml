@@ -1,5 +1,5 @@
 # Author: NSSA 320 Group 6
-# Purpose: Join Docker worker server to swarm
+# Purpose: Join Docker manager servers to swarm
 # Date: 10/24/23
 # Version: 1.0
 
