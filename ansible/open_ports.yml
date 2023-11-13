@@ -25,12 +25,12 @@
     - name: Open ports for Docker
       ansible.builtin.command: "{{ item }}"
       with_items:
-        - firewall-cmd --add-port=22/tcp --permanent
-        - firewall-cmd --add-port=2376/tcp --permanent
-        - firewall-cmd --add-port=2377/tcp --permanent
-        - firewall-cmd --add-port=4789/udp --permanent
-        - firewall-cmd --add-port=7946/tcp --permanent
-        - firewall-cmd --add-port=7946/udp --permanent
+        - firewall-cmd --add-port=22/tcp --zone=docker --permanent
+        - firewall-cmd --add-port=2376/tcp --zone=docker --permanent
+        - firewall-cmd --add-port=2377/tcp --zone=docker --permanent
+        - firewall-cmd --add-port=4789/udp --zone=docker --permanent
+        - firewall-cmd --add-port=7946/tcp --zone=docker --permanent
+        - firewall-cmd --add-port=7946/udp --zone=docker --permanent
 
     - name: Restart firewalld
       ansible.builtin.command: firewall-cmd --reload
