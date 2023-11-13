@@ -2,4 +2,4 @@
 yarn run build
 
 # build docker image
-docker buildx build . -t nssa-320-final-project
+docker buildx build . --platform=linux/amd64 -t connorstevens/nssa-320-final-project:latest --push
