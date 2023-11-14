@@ -13,6 +13,6 @@ app.get('/', (_req, res) => {
   res.send('Hello world!');
 });
 
-app.listen('0.0.0.0:3000', () => {
+app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
