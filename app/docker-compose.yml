@@ -3,6 +3,9 @@ services:
   web:
     image: 'connorstevens/nssa-320-final-project'
     ports:
-      - '3000:3000'
+      - target: 3000
+        published: 3000
+        protocol: tcp
+        mode: host
     deploy:
       replicas: 6
