@@ -31,6 +31,7 @@
         - firewall-cmd --add-port=4789/udp --permanent
         - firewall-cmd --add-port=7946/tcp --permanent
         - firewall-cmd --add-port=7946/udp --permanent
+        - firewall-cmd --add-port=3000/tcp --permanent
 
     - name: Restart firewalld
       ansible.builtin.command: firewall-cmd --reload
