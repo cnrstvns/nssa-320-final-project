@@ -8,4 +8,4 @@ services:
         protocol: tcp
         mode: host
     deploy:
-      replicas: 6
+      replicas: 18
