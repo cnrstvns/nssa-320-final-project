@@ -17,6 +17,7 @@ app.get('/about', (_req, res) => {
   res.send({
     name: 'NSSA-320 Final Project API Demo',
     description: 'Demo using Express.JS deployed using Docker Swarm',
+    lastUpdated: new Date('2023-11-18T20:03:51.319Z'),
   });
 });
 
