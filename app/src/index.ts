@@ -13,6 +13,13 @@ app.get('/', (_req, res) => {
   res.send('Hello world!');
 });
 
+app.get('/about', (_req, res) => {
+  res.send({
+    name: 'NSSA-320 Final Project API Demo',
+    description: 'Demo using Express.JS deployed using Docker Swarm',
+  });
+});
+
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
